@@ -1,0 +1,102 @@
+---
+title: "CapitalR"
+author: "John T. Buynak"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+## Functions
+
+##### Annuity Loan Calculation
+Calculates the payment, present value, future value, rate, or the number of periods
+
+$annuity(type = "pmt", pv = -2000, fv = 0, n  = 4 * 12, r = 0.06/12, end = TRUE)$
+
+* `type` Select the loan parameter to return:
+    + `"pmt"` Periodic Payment
+    + `"pv"` Present Value
+    + `"fv"` Future Value
+    + `"nper"` Number of Periods
+    + `"rate"` Rate
+* `r` Periodic Rate
+* `n` Number of Periods
+* `end` Logical. If `FALSE` payments are made at the beginning of the period
+
+##### Interest Payment
+Calculates the interest portion of the periodic payment at period "x"
+
+$ipmt(pv = 20000, fv = 0, n = 5 * 12, r = 0.05/12, x = 12, end = TRUE)$
+
+- `pv` Present Value
+- `fv` Future Value
+- `r` Periodic Rate
+- `n` Number of Periods
+- `x` Period 
+- `end` Logical. If `FALSE` payments are made at the beginning of the period
+
+
+##### Principal Payment
+Calculates the principal portion of the periodic payment at period "x"
+
+$ppmt(pv = 20000, fv = 0, n = 5 * 12, r = 0.05/12, x = 12, end = TRUE)$
+
+- `pv` Present Value
+- `fv` Future Value
+- `r` Periodic Rate
+- `n` Number of Periods
+- `x` Period 
+- `end` Logical. If `FALSE` payments are made at the beginning of the period
+
+
+##### Amortization Schedule
+Returns the loan amortization schedule
+
+$schedule(r = 0.06/12, n = 10 * 12, pv = -5000, fv = 0, end = TRUE)$
+
+- `pv` Present Value
+- `fv` Future Value
+- `r` Periodic Rate
+- `n` Number of Periods
+- `end` Logical. If `FALSE` payments are made at the beginning of the period
+
+##### Amortization Schedule with Irregular Payments
+Returns the loan amortization schedule with irregular payments
+
+$irregular(payments = c(0, 200, -100, 500), dates = c("2019-01-01", "2019-02-08", "2019-03-20", "2019-05-05"), apr = 0.05, pv = 2000)$
+
+- `payments` Vector of payments, inital payment must be 0
+- `dates` Vector of Dates in which payments take place
+- `apr` Annual Percent Rate
+- `pv` Present Value
+
+##### Present Value
+ 
+ $pv(fv = 20000, n = 5 * 12, r = 0.08 / 12)$
+ 
+ - `fv` Future Value
+ - `n` Number of Periods
+ - `r` Discount Rate
+ 
+##### Future Value
+
+ $fv(pv = 20000, n = 5 * 12, r = 0.08 / 12)$
+ 
+ - `pv` Present Value
+ - `n` Number of Periods
+ - `r` Discount Rate
+
+##### Geometric Mean Return
+Computes the geometric mean return of a vector of periodic returns in decimal form
+
+$geometric(c(0.20, 0.05, -0.50, 0.75, 0.25))$
+
+##### Return Calculation
+Calculates the periodic return, supply a vector of numerical asset prices
+
+$r.calc(c(80, 65, 70, 75, 90, 105))$
+
