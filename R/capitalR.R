@@ -61,23 +61,9 @@ geometric <- function(c) {
 #'
 #' @examples r.calc(c(100, 75, 50, 80, 125))
 r.calc <- function(vector) {
-  c(0, diff(vector)/vector[-length(vector)])
-}
-
-
-
-#' Position
-#'
-#' @param df Dataframe
-#' @param n Number
-#'
-#' @return Returns the General Position
-#'
-#'
-#' @examples \dontrun{ pos(dataframe, n)}
-pos <- function(df, n){
-  position <- match(df[,n], df[,n])
-  position
+  r1 <- c(diff(vector)/vector)
+  r1[is.na(r1)] <- 0
+  print(r1)
 }
 
 
