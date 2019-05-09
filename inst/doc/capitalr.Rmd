@@ -67,12 +67,13 @@ $schedule(r = 0.06/12, n = 10 * 12, pv = -5000, fv = 0, end = TRUE)$
 ##### Amortization Schedule with Irregular Payments
 Returns the loan amortization schedule with irregular payments
 
-$irregular(payments = c(0, 200, -100, 500), dates = c("2019-01-01", "2019-02-08", "2019-03-20", "2019-05-05"), apr = 0.05, pv = 2000)$
+$irregular(payments = c(0, 200, -100, 500), dates = c("2019-01-01", "2019-02-08", "2019-03-20", "2019-05-05"), apr = 0.05, pv = 2000, info = TRUE)$
 
 - `payments` Vector of payments, inital payment must be 0
 - `dates` Vector of Dates in which payments take place
 - `apr` Annual Percent Rate
 - `pv` Present Value
+- `info` Logical. If set to 'TRUE', information about the dataframe arrangement will be printed
 
 ##### Present Value
  

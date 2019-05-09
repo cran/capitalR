@@ -4,7 +4,7 @@
 \alias{irregular}
 \title{Amortization Schedule With Irregular Payments}
 \usage{
-irregular(payments, dates, apr, pv)
+irregular(payments, dates, apr, pv, info = TRUE)
 }
 \arguments{
 \item{payments}{Vector of payments, the first payment must be 0}
@@ -14,6 +14,8 @@ irregular(payments, dates, apr, pv)
 \item{apr}{Annual rate}
 
 \item{pv}{Present Value}
+
+\item{info}{Logical, if set to 'TRUE' information about the dataframe arrangement will be printed}
 }
 \value{
 Returns the irregular Amortization Schedule in a Dataframe
@@ -22,6 +24,7 @@ Returns the irregular Amortization Schedule in a Dataframe
 Creates an amortization schedule of a loan with irregular payments and withdrawals
 }
 \examples{
-irregular(payments = c(0, 200, -100, 500),
-dates = c("2019-01-01", "2019-02-08", "2019-03-20", "2019-05-05"), apr = 0.05, pv = 2000)
+irregular(payments = c(0, 200, -100), dates = c("2019-01-01", "2019-02-08", "2019-03-20"),
+apr = 0.05, pv = 2000, info = FALSE)
+
 }

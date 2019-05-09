@@ -12,7 +12,7 @@
 
 <meta name="author" content="John T. Buynak" />
 
-<meta name="date" content="2019-04-10" />
+<meta name="date" content="2019-05-09" />
 
 <title>CapitalR</title>
 
@@ -32,7 +32,7 @@
 
 <h1 class="title toc-ignore">CapitalR</h1>
 <h4 class="author"><em>John T. Buynak</em></h4>
-<h4 class="date"><em>2019-04-10</em></h4>
+<h4 class="date"><em>2019-05-09</em></h4>
 
 
 
@@ -97,12 +97,13 @@
 <div id="amortization-schedule-with-irregular-payments" class="section level5">
 <h5>Amortization Schedule with Irregular Payments</h5>
 <p>Returns the loan amortization schedule with irregular payments</p>
-<p><span class="math inline">\(irregular(payments = c(0, 200, -100, 500), dates = c(&quot;2019-01-01&quot;, &quot;2019-02-08&quot;, &quot;2019-03-20&quot;, &quot;2019-05-05&quot;), apr = 0.05, pv = 2000)\)</span></p>
+<p><span class="math inline">\(irregular(payments = c(0, 200, -100, 500), dates = c(&quot;2019-01-01&quot;, &quot;2019-02-08&quot;, &quot;2019-03-20&quot;, &quot;2019-05-05&quot;), apr = 0.05, pv = 2000, info = TRUE)\)</span></p>
 <ul>
 <li><code>payments</code> Vector of payments, inital payment must be 0</li>
 <li><code>dates</code> Vector of Dates in which payments take place</li>
 <li><code>apr</code> Annual Percent Rate</li>
 <li><code>pv</code> Present Value</li>
+<li><code>info</code> Logical. If set to ‘TRUE’, information about the dataframe arrangement will be printed</li>
 </ul>
 </div>
 <div id="present-value" class="section level5">
