@@ -60,10 +60,17 @@ geometric <- function(c) {
 #' @export
 #'
 #' @examples r.calc(c(100, 75, 50, 80, 125))
-r.calc <- function(vector) {
-  r1 <- c(diff(vector)/vector)
-  r1[is.na(r1)] <- 0
-  r1
+r.calc <- function(vector){
+  DIFF <- c(0,diff(vector))
+  n <- length(vector)
+  DIV <- rep(0,n)
+
+  for(i in 2:n){
+    DIV[i-1] <- DIFF[i]/vector[i-1]
+  }
+  r <- DIV[1:n-1]
+  r <- c(0,r)
+  return(r)
 }
 
 
@@ -355,6 +362,28 @@ irregular <- function(payments, dates, apr, pv, info = TRUE){
 
   }
 
+
+#' Effective Annual Rate
+#'
+#' @param apr Annual Rate (Nominal Interest Rate)
+#' @param n Number of compounds in a year
+#' @param p Calculates the EAR to the (1/10^p) decimal place
+#'
+#' @return Effective Annual Rate
+#' @export
+#'
+#' @examples ear(apr= 0.05, n = 12)
+ear <- function(apr, n, p = 5){
+
+  x <- 0
+
+
+  df <- data.frame(x = seq(0,2,(1/10^p)))
+  df$y <- ((1+df$x)^(1/n)-1)*n
+  df$diff <- abs(apr-df$y)
+
+  df[match(min(df$diff),df$diff),1]
+}
 
 
 
